@@ -1,56 +1,251 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zadanie 2 – Tailwind Header</title>
-<!-- Tailwind CSS v2 przez CDN – nie wymaga instalacji -->
-<link href="https://unpkg.com/tailwindcss@2/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@2/dist/tailwind.min.css" rel="stylesheet">
+    <title>profilowo</title>
 </head>
-<body class="bg-gray-100 font-sans">
+<body>
+    <nav class="bg-blue-900 text-white shadow">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+      <span class="text-xl font-bold">Jan Kowalski</span>
+      <!-- hidden md:flex = ukryj na tel, pokaz na md+ -->
+      <div class="hidden md:flex space-x-6 text-sm">
+        <a href="#o-mnie" class="hover:text-blue-300 transition">O mnie</a>
+        <a href="#umiejetnosci" class="hover:text-blue-300 transition">Umiejetnosci</a>
+        <a href="#projekty" class="hover:text-blue-300 transition">Projekty</a>
+        <a href="#kontakt" class="hover:text-blue-300 transition">Kontakt</a>
+      </div>
+    </div>
+  </nav>
 
-<!-- NAGŁÓWEK (HEADER) -->
-<header class="bg-purple-900 text-white shadow-md">
-<div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+  <!-- HERO – zdjecie i tytul -->
+  <section id="o-mnie" class="bg-blue-800 text-white py-20 px-4">
+    <div class="max-w-5xl mx-auto md:flex md:items-center md:gap-12">
 
-<!-- Logo -->
-<div class="text-xl font-bold">cus</div>
+      <!-- Zdjecie -->
+      <!-- w-48 h-48 = 12rem x 12rem | rounded-full = kolko | object-cover = przytnij -->
+      <img src="images/photo.jpg"
+           alt="Moje zdjecie"
+           class="w-48 h-48 rounded-full object-cover mx-auto md:mx-0 shadow-lg flex-shrink-0">
 
-<!-- Menu nawigacyjne -->
-<nav class="space-x-6 hidden md:flex">
-<!-- hidden md:flex = ukryj na telefonie, pokaż na większych ekranach -->
-<a href="#" class="hover:text-blue-300 transition">Strona główna</a>
-<a href="#" class="hover:text-blue-300 transition">O mnie</a>
-<a href="#" class="hover:text-blue-300 transition">Kontakt</a>
-<a href="#" class="hover:text-blue-300 transition">E-mail</a>
+      <!-- Tekst obok zdjecia -->
+      <div class="text-center md:text-left mt-8 md:mt-0">
+        <h1 class="text-4xl font-bold mb-2">Jan Kowalski</h1>
+        <p class="text-blue-200 text-xl mb-4">Technik Informatyk | Web Developer</p>
+        <p class="text-gray-300 leading-relaxed max-w-lg">
+          Czesc! Jestem uczniem technikum informatycznego. Pasjonuje mnie
+          tworzenie stron internetowych i automatyzacja procesow.
+          Szukam pierwszego doswiadczenia zawodowego.
+        </p>
+        <!-- mt-6 = margin-top 1.5rem | inline-flex = button wyswietlony inline -->
+        <a href="#kontakt"
+           class="mt-6 inline-flex items-center bg-white text-blue-900
+                  font-semibold px-6 py-3 rounded-full hover:bg-blue-100 transition">
+          Skontaktuj sie ze mna
+        </a>
+      </div>
+    </div>
+  </section>
 
-</nav>
+  <!-- UMIEJETNOSCI -->
+  <section id="umiejetnosci" class="py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center text-blue-900 mb-10">Moje umiejetnosci</h2>
 
-<!-- Przycisk hamburger (tylko na telefonie) -->
-<button class="bg-yellow-400 text-gray-900 md:hidden text-2xl">&#9776;</button>
+      <!-- grid = siatka | grid-cols-1 = 1 kolumna | md:grid-cols-3 = 3 kolumny na md+ -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Karta umiejetnosci – powtorz ten blok dla kazdej umiejetnosci -->
+        <div class="bg-white rounded-lg shadow p-6 text-center">
+          <!-- text-4xl = duzy emoji/ikona | mb-3 = margin-bottom 0.75rem -->
+          <div class="text-4xl mb-3">HTML & CSS</div>
+          <h3 class="font-bold text-lg text-blue-800 mb-2">Budowa stron</h3>
+          <p class="text-gray-600 text-sm">Tworzenie responsywnych stron internetowych od podstaw.</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6 text-center">
+          <div class="text-4xl mb-3">SQL</div>
+          <h3 class="font-bold text-lg text-blue-800 mb-2">Bazy danych</h3>
+          <p class="text-gray-600 text-sm">Projektowanie tabel, zapytania SELECT, JOIN, relacje.</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-6 text-center">
+          <div class="text-4xl mb-3">Git</div>
+          <h3 class="font-bold text-lg text-blue-800 mb-2">Kontrola wersji</h3>
+          <p class="text-gray-600 text-sm">Podstawy Git: commit, push, branch, merge.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJEKTY -->
+  <section id="projekty" class="bg-white py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center text-blue-900 mb-10">Moje projekty</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+          <div class="bg-blue-50 p-4">
+            <h3 class="font-bold text-lg text-blue-900">Strona landing page</h3>
+            <p class="text-gray-600 text-sm mt-1">Projekt z Zadania 1 praktyk – HTML + CSS</p>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-700 text-sm">Prosta strona landing page z naglowkiem, sekcjami tresci i stopka. Wykonana bez zadnego frameworka.</p>
+            <span class="inline-block mt-3 bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">HTML</span>
+            <span class="inline-block mt-3 ml-1 bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">CSS</span>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+          <div class="bg-blue-50 p-4">
+            <h3 class="font-bold text-lg text-blue-900">Baza danych sklepu</h3>
+            <p class="text-gray-600 text-sm mt-1">Projekt z Zadania 4 praktyk – SQL</p>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-700 text-sm">Baza danych sklepu internetowego: tabele klienci, produkty, zamowienia. Zapytania SQL z JOINem.</p>
+            <span class="inline-block mt-3 bg-green-100 text-green-800 text-xs px-2 py-1 rounded">SQL</span>
+            <span class="inline-block mt-3 ml-1 bg-green-100 text-green-800 text-xs px-2 py-1 rounded">SQLite</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt" class="py-16 px-4 bg-gray-50">
+    <div class="max-w-xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-blue-900 mb-4">Kontakt</h2>
+      <p class="text-gray-600 mb-6">Chcesz sie ze mna skontaktowac? Napisz na email:</p>
+      <a href="mailto:twoj@email.com"
+         class="bg-blue-800 text-white px-8 py-3 rounded-full hover:bg-blue-900 transition font-semibold">
+        twoj@email.com
+      </a>
+    </div>
+  </section>
+<section id='kontakt' class='py-16 px-4 bg-gray-50'>
+<div class='max-w-xl mx-auto text-center'>
+<h2 class='text-3xl font-bold text-blue-900 mb-4'>Kontakt</h2>
+<p class='text-gray-600 mb-8'>Napisz do mnie – odpisz■ najszybciej jak mozliwe.</p>
+<!-- id='formularz' pozwoli JS znalezc ten formularz -->
+<!-- novalidate = wylacza wbudowana walidacje przegladarki, uzyjemy wlasnej w JS -->
+<form id='formularz' novalidate class='text-left space-y-5'>
+<!-- POLE: Imie -->
+<div>
+<label for='imie' class='block text-sm font-medium text-gray-700 mb-1'>
+Imie i nazwisko *
+</label>
+<!-- id='imie' = JS znajdzie to pole po tym id -->
+<input type='text' id='imie' placeholder='Jan Kowalski'
+class='w-full border border-gray-300 rounded px-4 py-2
+focus:outline-none focus:border-blue-500'>
+<!-- Tu JS wstawi komunikat bledu jesli pole bedzie niepoprawne -->
+<p id='blad-imie' class='text-red-600 text-sm mt-1 hidden'></p>
 </div>
-</header>
-
-<!-- SEKCJA HERO -->
-<section class="bg-blue-800 text-white py-32 px-4 text-center">
-<h1 class="text-4xl md:text-6xl font-bold mb-4">
-Witaj na mojej stronie!
-</h1>
-<p class="text-lg md:text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
-To jest sekcja hero – pierwszy widok który użytkownik widzi po wejściu na stronę.
-Powinna być przyciągająca uwagę i jasno komunikować cel strony.
-</p>
-<a href="#"
-class="bg-white text-blue-900 font-semibold px-8 py-3 rounded-full
-hover:bg-blue-100 transition inline-block">
-Dowiedz się więcej
-</a>
+<!-- POLE: Email -->
+<div>
+<label for='email' class='block text-sm font-medium text-gray-700 mb-1'>
+Adres email *
+</label>
+<input type='email' id='email' placeholder='jan@example.com'
+class='w-full border border-gray-300 rounded px-4 py-2
+focus:outline-none focus:border-blue-500'>
+<p id='blad-email' class='text-red-600 text-sm mt-1 hidden'></p>
+</div>
+<!-- POLE: Wiadomosc -->
+<div>
+<label for='wiadomosc' class='block text-sm font-medium text-gray-700 mb-1'>
+Wiadomosc *
+</label>
+<textarea id='wiadomosc' rows='5' placeholder='Twoja wiadomosc...'
+class='w-full border border-gray-300 rounded px-4 py-2
+focus:outline-none focus:border-blue-500'></textarea>
+<p id='blad-wiadomosc' class='text-red-600 text-sm mt-1 hidden'></p>
+</div>
+<!-- PRZYCISK SUBMIT -->
+<button type='submit'
+class='w-full bg-blue-800 text-white font-semibold py-3 rounded
+hover:bg-blue-900 transition'>
+Wyslij wiadomosc
+</button>
+</form>
+<!-- Ten div jest ukryty na start. JS go pokaze po udanym wysylaniu. -->
+<div id='sukces' class='hidden mt-8 p-6 bg-green-50 border border-green-200 rounded'>
+<p class='text-green-700 font-semibold text-lg'>Wiadomosc wyslana!</p>
+<p class='text-green-600 mt-2'>Dzieki za kontakt. Odpisz■ najszybciej jak mozliwe.</p>
+</div>
+</div>
 </section>
+<script>
+// Znajdz formularz w HTML po jego id='formularz'
+const formularz = document.getElementById('formularz');
+// Nasluchuj na zdarzenie 'submit' (klikniecie przycisku Wyslij)
+formularz.addEventListener('submit', function(event) {
+// preventDefault = zatrzymaj domyslne wysylanie formularza (przeladowanie strony)
+event.preventDefault();
+// Najpierw zak■adamy ze wszystko jest poprawne
+let czyPoprawny = true;
+// ■■ WALIDACJA POLA: Imie ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+const pole_imie = document.getElementById('imie');
+const blad_imie = document.getElementById('blad-imie');
+const wartosc_imie = pole_imie.value.trim();
+// .trim() usuwa spacje z poczatku i konca
+if (wartosc_imie.length < 3) {
+// Pole niepoprawne: pokaz blad i podswietl pole na czerwono
+blad_imie.textContent = 'Wpisz imie i nazwisko (minimum 3 znaki).';
+blad_imie.classList.remove('hidden');
+pole_imie.classList.add('border-red-500');
+czyPoprawny = false;
+} else {
+// Pole poprawne: ukryj blad i usun czerwona ramke
+blad_imie.classList.add('hidden');
+pole_imie.classList.remove('border-red-500');
+}
+// ■■ WALIDACJA POLA: Email ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+const pole_email = document.getElementById('email');
+const blad_email = document.getElementById('blad-email');
+const wartosc_email = pole_email.value.trim();
+// Prosta walidacja: sprawdz czy zawiera @ i kropke po malpalce
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailRegex.test(wartosc_email)) {
+blad_email.textContent = 'Podaj prawidlowy adres email.';
+blad_email.classList.remove('hidden');
+pole_email.classList.add('border-red-500');
+czyPoprawny = false;
+} else {
+blad_email.classList.add('hidden');
+pole_email.classList.remove('border-red-500');
+}
+// ■■ WALIDACJA POLA: Wiadomosc ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+const pole_wiad = document.getElementById('wiadomosc');
+const blad_wiad = document.getElementById('blad-wiadomosc');
+const wartosc_wiad = pole_wiad.value.trim();
+if (wartosc_wiad.length < 10) {
+blad_wiad.textContent = 'Wiadomosc musi miec co najmniej 10 znakow.';
+blad_wiad.classList.remove('hidden');
+pole_wiad.classList.add('border-red-500');
+czyPoprawny = false;
+} else {
+blad_wiad.classList.add('hidden');
+pole_wiad.classList.remove('border-red-500');
+}
+// ■■ JESLI WSZYSTKO OK ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+if (czyPoprawny) {
+// Ukryj formularz
+formularz.classList.add('hidden');
+// Pokaz komunikat sukcesu
+document.getElementById('sukces').classList.remove('hidden');
+}
+}); // koniec addEventListener
+</script>
+  <!-- STOPKA -->
+  <footer class="bg-blue-900 text-white text-center py-6 text-sm">
+    <p>Jan Kowalski – Portfolio 2025 – wykonane podczas praktyk zawodowych w UNLIMI</p>
+  </footer>
 
-<!-- PRZYKŁADOWA TREŚĆ POD HERO -->
-<main class="max-w-5xl mx-auto px-4 py-16">
-<p class="text-gray-500 text-center">Tu będzie reszta strony...</p>
-</main>
 
 </body>
 </html>
